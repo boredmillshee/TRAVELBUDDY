@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TravelBuddy · Tu asistente de viaje</title>
+<meta name="description" content="TravelBuddy te guía en el aeropuerto, el hotel y la ciudad, y deja a tu familia seguir tu viaje en tiempo real.">
+<meta property="og:title" content="TravelBuddy · Tu asistente de viaje">
+<meta property="og:description" content="Guías, asistencia de vuelo, seguimiento familiar y una comunidad de viajeros.">
+<meta property="og:type" content="website">
+<!-- PROVISIONAL: añade og:image y og:url cuando tengas dominio -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<script>/* Tema antes de pintar: evita parpadeo */
+(function(){var t;try{t=localStorage.getItem('tb_theme')}catch(e){}
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.dataset.theme=t})();</script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <a class="logo" href="#inicio" aria-label="TravelBuddy, inicio"><img src="assets/favicon.svg" alt="" width="28" height="28">TravelBuddy</a>
+  <nav aria-label="Principal">
+    <a href="#guia">Guía</a><a href="#asistencia">Asistencia</a><a href="#social">Social</a><a href="#como">Cómo funciona</a>
+  </nav>
+  <div class="tools">
+    <button id="themeBtn" class="icon" type="button" aria-label="Cambiar a modo oscuro">◐</button>
+    <button class="btn sm" type="button" data-open-app>Probar demo</button>
+  </div>
+</header>
+
+<main id="contenido">
+<!-- ============ LANDING ============ -->
+<div id="landing">
+  <section id="inicio" class="hero">
+    <h1>Viaja tranquilo. <span class="prov" title="PROVISIONAL: sustituir eslogan">Tu familia, también.</span></h1>
+    <p>TravelBuddy te acompaña antes, durante y después del viaje: te guía por el aeropuerto, el hotel y la ciudad, y deja que los tuyos vean cada paso de tu vuelo.</p>
+    <button class="btn" type="button" data-open-app>Crear mi cuenta</button>
+    <p class="note">Demo gratuita: prueba con los vuelos TB1234 o TB2026.</p>
+  </section>
+
+  <section id="guia" class="sec">
+    <h2>Guía de viaje</h2>
+    <div class="grid">
+      <article><h3>En el aeropuerto</h3><p>Dónde facturar, pasar el control y llegar a tu puerta sin dar vueltas.</p></article>
+      <article><h3>Hasta tu hotel</h3><p>La ruta más clara desde que aterrizas hasta que dejas la maleta.</p></article>
+      <article><h3>Por la ciudad</h3><p>Lugares y trayectos pensados para el destino al que has ido.</p></article>
+      <article><h3>Antes de salir</h3><p>Reglamentos y requisitos del viaje en una lista que puedes ir marcando.</p></article>
+    </div>
+  </section>
+
+  <section id="asistencia" class="sec alt">
+    <h2>Asistencia de viaje</h2>
+    <div class="grid">
+      <article><h3>Tu vuelo y tu avión</h3><p>Terminal, puerta, hora y modelo de avión, siempre a mano.</p></article>
+      <article><h3>Itinerario personal</h3><p>Créalo tú o deja que la IA te proponga uno.</p></article>
+      <article class="feat"><h3>Seguimiento familiar</h3><p>Tus familiares ven en qué fase estás: facturación, seguridad, embarque o en vuelo. Pensado para menores que viajan solos y para abuelos.</p></article>
+    </div>
+  </section>
+
+  <section id="social" class="sec">
+    <h2>Social</h2>
+    <p class="lead">Cuenta propia, foro de viajeros, logros y un mapa que se rellena con cada país que visitas con TravelBuddy.</p>
+    <ul class="map" aria-label="Vista previa del mapa de países visitados">
+      <li class="on">España</li><li class="on">Francia</li><li class="on">Portugal</li><li>Italia</li><li>Japón</li><li>México</li><li>Marruecos</li><li>Canadá</li>
+    </ul>
+  </section>
+
+  <section id="como" class="sec alt">
+    <h2>Cómo funciona</h2>
+    <ol class="steps">
+      <li><b>Crea tu cuenta</b> y cuéntanos a dónde vas.</li>
+      <li><b>Añade tu vuelo</b> con el número y recibe tu ficha.</li>
+      <li><b>Comparte el seguimiento</b> con tu familia.</li>
+      <li><b>Llena tu mapa</b> y consigue logros.</li>
+    </ol>
+  </section>
+
+  <section class="sec cta">
+    <h2>Sé de los primeros en probarlo</h2>
+    <button class="btn" type="button" data-open-app>Entrar a la demo</button>
+    <p class="note"><!-- PROVISIONAL: enlace a lista de espera -->Lista de espera: próximamente.</p>
+  </section>
+</div>
+
+<!-- ============ DEMO APP ============ -->
+<div id="app" hidden>
+  <section id="auth" class="card narrow" aria-labelledby="authT">
+    <h2 id="authT">Tu cuenta TravelBuddy</h2>
+    <p class="warn" role="note">Demo: no uses contraseñas reales.</p>
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tabReg" aria-selected="true" aria-controls="formReg">Registrarme</button>
+      <button role="tab" id="tabLog" aria-selected="false" aria-controls="formLog" tabindex="-1">Iniciar sesión</button>
+    </div>
+    <form id="formReg" role="tabpanel" aria-labelledby="tabReg" novalidate>
+      <label>Nombre<input name="name" autocomplete="name" required></label><small class="err" data-for="name"></small>
+      <label>Correo<input name="email" type="email" autocomplete="email" required></label><small class="err" data-for="email"></small>
+      <label>Contraseña (mín. 8)<input name="pass" type="password" autocomplete="new-password" required></label><small class="err" data-for="pass"></small>
+      <label>Repite la contraseña<input name="pass2" type="password" autocomplete="new-password" required></label><small class="err" data-for="pass2"></small>
+      <button class="btn" type="submit">Crear cuenta</button>
+    </form>
+    <form id="formLog" role="tabpanel" aria-labelledby="tabLog" hidden novalidate>
+      <label>Correo<input name="email" type="email" autocomplete="email" required></label>
+      <label>Contraseña<input name="pass" type="password" autocomplete="current-password" required></label>
+      <small class="err" data-for="login" role="alert"></small>
+      <button class="btn" type="submit">Entrar</button>
+    </form>
+  </section>
+
+  <section id="dash" hidden aria-labelledby="hola">
+    <h2 id="hola"></h2>
+    <div class="tabs menu" role="tablist" aria-label="Menú principal">
+      <button role="tab" aria-selected="true" data-p="guia">Guía de viaje</button>
+      <button role="tab" aria-selected="false" data-p="asist">Asistencia</button>
+      <button role="tab" aria-selected="false" data-p="soc">Social</button>
+      <button role="tab" aria-selected="false" data-p="perf">Perfil</button>
+    </div>
+
+    <div class="card" data-panel="guia">
+      <h3>Antes de salir</h3>
+      <ul class="check">
+        <li><label><input type="checkbox"> DNI o pasaporte en vigor</label></li>
+        <li><label><input type="checkbox"> Revisar requisitos de entrada del destino</label></li>
+        <li><label><input type="checkbox"> Tarjeta de embarque descargada</label></li>
+        <li><label><input type="checkbox"> Líquidos en bolsa transparente (máx. 100 ml)</label></li>
+      </ul>
+      <p class="note">Guías de aeropuerto, hotel y ciudad: disponibles al añadir un vuelo.</p>
+    </div>
+
+    <div class="card" data-panel="asist" hidden>
+      <h3>Introduce tu número de vuelo</h3>
+      <form id="flightForm" class="inline" novalidate>
+        <input id="flightNo" aria-label="Número de vuelo" placeholder="TB1234" autocomplete="off">
+        <button class="btn" type="submit">Buscar</button>
+      </form>
+      <p class="note">Vuelo de demostración, datos ficticios.</p>
+      <p id="flightErr" class="err" role="alert"></p>
+      <div id="flightOut" hidden aria-live="polite">
+        <div class="ficha" id="ficha"></div>
+        <h4>Seguimiento en tiempo real (simulado)</h4>
+        <ol class="timeline" id="timeline"></ol>
+        <p id="family" class="feat-msg"></p>
+        <h4>Itinerario</h4>
+        <div class="inline"><button class="btn sm" id="aiBtn" type="button">Generar con IA (simulado)</button></div>
+        <ul id="itin"></ul>
+        <form id="itinForm" class="inline"><input id="itinIn" aria-label="Añadir actividad" placeholder="Añadir actividad a mano"><button class="btn sm" type="submit">Añadir</button></form>
+      </div>
+    </div>
+
+    <div class="card" data-panel="soc" hidden>
+      <h3>Logros</h3><ul id="ach"></ul>
+      <h3>Tu mapa</h3><ul class="map" id="myMap"></ul>
+      <p class="note">El foro estará disponible en la versión completa.</p>
+    </div>
+
+    <div class="card" data-panel="perf" hidden>
+      <h3>Perfil</h3><p id="perfInfo"></p>
+      <div class="inline"><button class="btn sm" id="tutAgain" type="button">Ver tutorial de nuevo</button><button class="btn sm ghost" id="logout" type="button">Cerrar sesión</button></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<dialog id="tut" aria-labelledby="tutT">
+  <h2 id="tutT"></h2><p id="tutP"></p>
+  <p class="note" id="tutProg" aria-live="polite"></p>
+  <div class="inline"><button class="btn sm ghost" id="tutSkip" type="button">Saltar</button><button class="btn sm ghost" id="tutPrev" type="button">Anterior</button><button class="btn sm" id="tutNext" type="button">Siguiente</button></div>
+</dialog>
+
+<footer class="foot"><p>© 2026 TravelBuddy · <!-- PROVISIONAL --><span class="prov">Nombre del equipo</span> · Demo con datos ficticios.</p></footer>
+<script src="js/flights.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
